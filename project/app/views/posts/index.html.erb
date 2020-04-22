@@ -1,0 +1,19 @@
+<div class="main-page-content">
+  <div class= "main-page-block">
+      <div class="all-posts">
+       <h1 class="posts-header">Posts</h1>
+       <div class="posts-list">
+        <% @posts.each do |post| %>
+          <%= render 'certain-post', post: post%>
+        <% end %>
+        </div>
+      </div>
+
+      </div>
+        <div class="main-page-first-block"></div>
+      </div>
+  </div>
+</div>
+<br>
+
+

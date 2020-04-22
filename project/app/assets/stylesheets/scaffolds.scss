@@ -1,0 +1,124 @@
+body {
+  background-color: #14171A;
+  color: #DBDBDB;
+  
+}
+
+body, p, ol, ul, td {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1em;
+  line-height: 18px; }
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px; }
+
+a {
+  color: #DBDBDB; }
+
+a:visited {
+  color: #DBDBDB; }
+
+a {
+  text-decoration: none;
+    font-size: 1.1em;
+    position: relative;
+    transition: all 0.6s;
+    &:before {
+        content: "";
+        width: 0;
+        height: 0.1em;
+        position: absolute;
+        bottom: -10%;
+        
+        left: 50%;
+        background: lightgreen;
+        transition: all 0.3s;
+    }
+    &:hover {
+      text-decoration: none;
+      color:lightgreen;
+        &:before {
+            width: 100%;
+            left: 0;
+        background: lightgreen;
+      
+        }
+    }
+}
+
+th {
+  padding-bottom: 5px; }
+
+td {
+  padding: 0 5px 7px; }
+
+div.field,
+div.actions {
+  margin-bottom: 5px; }
+
+#notice {
+  color: green; }
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table; }
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px 7px 0;
+  margin-bottom: 20px;
+  background-color: #14171A; }
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px -7px 0;
+  background-color: #c00;
+  color: #fff; }
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square; }
+
+label {
+  display: block; }
+
+
+  /* APPLICATION.HTML.ERB */
+/* main navigation menu  */
+div.navigation-menu{
+  background-color: #0C1013;
+  width: 100%;
+  border-bottom:1px solid #FF8831;
+}
+
+h5.logo-text:hover{
+  color: #FF8831;
+  transition: 0.3s;
+  cursor: default;
+}
+/* Categories side navigation*/
+.main-page-block{
+    display:flex;
+    flex-direction:row-reverse;
+    margin-right: 1.8%;
+}
+.categories-header{
+  background: linear-gradient(to right, yellow, #FF8831);
+  -webkit-background-clip: text; 
+  color: transparent;
+}
+.main-page-side-navigation{
+  display:flex;
+  flex-direction: column;
+  align-content: space-between;
+}
+.main-page-side-navigation span{
+ margin-bottom: 5%;
+ align-self: flex-end;
+}

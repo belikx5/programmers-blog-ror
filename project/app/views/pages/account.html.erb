@@ -1,0 +1,48 @@
+<div class="welcome-block">
+  <h2>Welcome,<span> <%=current_user.email %></span></h2>
+  <h3>Here are your posts:</h3>
+</div>
+
+<div class="all-posts">
+   <div class="posts-list">
+    <% @posts.each do |post| %>
+    <% if current_user.email == post.user.email%>
+      <div class="certain-post">
+        
+        <div class="flex-box-post">
+          <div class="post-img">
+            <% if post.photo.present? %>
+            <p><%= image_tag post.photo.url(:medium) %></p>
+            <% end %>
+          </div>
+          <div class="post-data">
+            <div class="post-info">
+              <h3><%= simple_format(post.title) %></h3>
+              <div class="post-info-username-and-pic">
+                <%= image_tag("logo/user-pic.svg", width: '15px', height: '15px')%>
+                <h6><%= simple_format(post.user.email)%></h6>
+              </div>
+              
+            </div>
+            <div class="post-data-category">
+              <%= image_tag("logo/post-category.svg", width: '15px', height: '15px')%>
+              <h6>CATEGORY</h6>
+            </div>
+            <div class="post-text">
+              <p><%= simple_format(post.body) %></p>
+            </div>
+          </div>
+        </div>
+          
+            
+          <div class="post-controls">
+            <div class="post-control"><%= link_to 'Show', post, id: "show" %></div>
+            <div class="post-control"><%= link_to 'Edit', edit_post_path(post), id: "edit" %></div>
+            <div lcass="post-control"><%= link_to 'Delete', post,id: "delete" ,method: :delete, data: { confirm: 'Are you sure?' } %></div>
+          </div>
+
+      </div>
+      <% end %>
+    <% end %>
+    </div>
+  </div>

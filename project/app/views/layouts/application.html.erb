@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Progger's Blog</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+  
+  <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' %>
+
+    <%= stylesheet_link_tag 'application', media: 'all'#, 'data-turbolinks-track': 'reload'
+    %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body  class="mt-0">
+   <div class="navigation-menu d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 b  box-shadow">
+      <%= image_tag("logo/blog-logo.jpeg", width: '35px', height: '35px')%>
+      <h5 class="logo-text my-0 mr-md-auto font-weight-bold">Progger's Blog</h5>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <span class="p-2  text-primary" ><%= link_to "Blog", posts_path %></span>
+        <span class="p-2  text-primary" ><%= link_to "About", about_path %></span>
+      </nav>
+      <% if user_signed_in? %>
+        
+           <span class="p-2" ><%= link_to 'New Post', new_post_path %></span>
+           <span class="p-2" ><%= link_to 'Account', account_path %></span>
+           <span class="p-2" ><%= link_to 'Log out', destroy_user_session_path, :method => :delete %></span>
+         
+          
+      <% else %>
+      <span class="p-2" ><%= link_to 'Log in',new_user_session_path %></span>
+      <span class="p-2" ><%= link_to 'Sign up',new_user_registration_path %></span>
+      <% end %>
+    </div>
+      
+      
+    <%= yield %>
+  </body>
+</html>

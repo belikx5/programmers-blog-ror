@@ -1,0 +1,279 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ 
+ :root{
+    --gradient-background:linear-gradient(to right, yellow, #FF8831);
+    --gradient-color:transparent;
+ }
+ /* INDEX.HTML.ERB  */
+.all-posts{
+   display: flex;
+   flex-direction: column;
+    flex-grow:2;
+}
+.posts-header{
+    background: var(--gradient-background);
+    -webkit-background-clip: text;
+    color: var(--gradient-color);
+}
+.posts-list{
+    display: flex;
+    flex-direction: column-reverse;
+}
+h1{
+    align-self:center;
+}
+.certain-post{
+    align-self: center;
+    max-width: 900px;
+    max-height: 600px;
+    height: auto;
+    width: 900px;
+    background: #080C0F;
+    margin-bottom: 3%;
+    border-radius: 8px;
+}
+.flex-box-post{
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #FF8831;
+    padding-top:5px;
+}
+.post-img{
+    max-width:350px;
+    max-height: 350px;
+    width: auto;
+    height: auto;
+}
+.post-data{
+    height:100%;
+    width: 100%;
+    padding-left:3px;
+    
+}
+.post-info{
+    padding:5px 3px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height:40px;
+}
+
+.post-info-username-and-pic{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.post-data-category{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height:30px;
+}
+.post-text{
+    border-top:1px solid #FF8831;
+    height: 100%;
+    width: 100%;
+    text-align: justify;
+}
+.post-controls{
+    margin-top: 5px;
+    margin-bottom: 0; 
+    display: flex;
+    flex-direction: row;  
+   justify-content: space-around;
+}
+
+.main-page-first-block{
+    flex-grow: 1;
+}
+.main-page-block{
+    display:flex;
+    flex-direction:row-reverse;
+    justify-content: space-between;
+}
+
+.main-page-side-navigation{
+  display:flex;
+  flex-direction: column;
+  flex-grow:1;
+  align-content: space-between;
+}
+.main-page-side-navigation span{
+ margin-bottom: 5%;
+ align-self: flex-end;
+}
+    /* post controls: */
+    /* "edit" */
+a#edit::before{
+    background: yellow;
+}
+a#edit:hover{
+    color:yellow;
+}
+a#edit:hover::before{
+    background: yellow;
+}
+    /* delete */
+a#delete::before{
+    background: #f04737;
+}
+a#delete:hover{
+    color:#f04737;
+}
+a#delete:hover::before{
+    background: #f04737;
+}
+a#tag::before{
+    background: lightskyblue;
+}
+a#tag:hover{
+    color:lightskyblue;
+}
+a#tag:hover::before{
+    background: lightskyblue;
+}
+
+/* ABOUT.HTML.ERB  */
+.description p{
+    font-size: 1.3em;
+    line-height: 1.7em;   
+}
+.about-block{
+    display:flex;
+    flex-direction: column;
+    
+}
+.about-block-inner{
+    max-width: 80%;
+    width:80%;
+    text-align: justify;
+    align-self: center;
+}
+.about-block-inner h2{
+    margin-left: 0;
+}
+
+/* ACCOUNT.HTML.ERB */
+.welcome-block, .welcome-block h3 {
+    padding-left: 1.4%;
+}
+                        /* mi-info-descr it's for ABOUT.HTML.ERB */
+h2 > span, .about-block-inner h2, .my-info-description p span{
+    background: var(--gradient-background);
+    -webkit-background-clip: text;
+    color: var(--gradient-color);
+}
+
+/* NEW POST CREATION page  */
+/* AND   */
+/* EDIT POST page */
+.new-post-creation-block, .post-edit-block{
+    
+    margin-left: 1vw;
+    padding: 5px;
+    max-width:400px;
+    width: auto;
+}
+.new-post-creation-block h1, .post-edit-block h1{
+    background: var(--gradient-background);
+    -webkit-background-clip: text;
+    color: var(--gradient-color);
+}
+
+
+/* _FORM.HRML.ERB  */
+ input[type="submit"], input[type="file"], input[type="email"], input[type="password"] {
+    border-radius: 5px;
+    background: #0C1013;
+    color: #DBDBDB;
+    border: 1px solid #FF8831;
+    padding: 0.3em 0.7em;
+}
+ input[type="submit"]:hover, input[type="file"]:hover{
+    color:#FF8831;
+    padding:0.3em 0.9em;
+    transition: 0.3s;
+}
+input[type="text"], textarea{
+    border-radius: 5px;
+    background: #0C1013;
+    color: #DBDBDB;
+    border: 1px solid #FF8831;
+    padding: 0.3em 0.7em;
+    width:100%;
+}
+textarea{
+    height:15vh;
+}
+
+/* SHOW.HTML.ERB  */
+.show-post-block{
+    margin-left: 1vw;
+    padding: 5px;
+    max-width: 900px;
+    width: auto;
+}
+
+div.comments h3{
+    background: var(--gradient-background);
+    -webkit-background-clip: text;
+    color: var(--gradient-color);
+}
+
+div.post-image-and-text{
+    max-width: 900px;
+    max-height: auto;
+    height: max-content;
+    width: 900px;
+    overflow: auto;
+}
+div.post-image-and-text img{
+    
+    max-width:350px;
+    max-height: 350px;
+    width: auto;
+    height: auto;
+    margin-right:5px;
+    float: left;
+    
+}
+
+.text-fields input[type="text"], .text-fields textarea{
+    width: 500px;
+}
+.comments-list {
+    border-bottom: 1px solid #FF8831;
+    width:500px;
+}
+.comments-list p{
+    margin-bottom: 2px;
+}
+/* LOG IN SIGN UP pages  */
+
+h2,form.new_user, a[href="/users/password/new"],
+ a[href="/users/sign_up"], a[href="/users/sign_in"]{
+    margin-left: 1.2vw;
+}
+form.new_user label{
+    margin-bottom: 0;
+    padding-bottom: 0;
+    margin-top:1%;
+}
+form.new_user label[for="user_remember_me"]{
+    margin-top:0;
+    display: inline-block;
+}

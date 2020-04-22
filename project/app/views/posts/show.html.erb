@@ -1,0 +1,72 @@
+<div class="show-post-block">
+  
+  <p id="notice"><%= notice %></p>
+   <p>
+      <strong>Title:</strong>
+      <%= @post.title %>
+    </p>
+
+    <p>
+      <strong>User:</strong>
+      <%= @post.user.email %>
+    </p>
+  <div class="post-image-and-text">
+    <% if @post.photo.present? %>
+      <%= image_tag @post.photo.url(:medium) %>
+    <% end %>
+    <div class="body-n-text">
+      <p>
+        <strong>Data:</strong>
+
+        <div class="p-post-text">
+        <%= simple_format(@post.body) %>
+        </div>
+      </p>
+    </div>  
+  </div>
+   
+    <hr>
+    <div class="comments">
+      <h3>Comments</h3>
+        <% @post.comments.each do |comment| %>
+        <div class="comments-list" >
+          <%if current_user.email == @post.user.email || current_user.email == comment.username  %>
+          <%= link_to 'Delete', [comment.post, comment],id: "delete",method: :delete, data: { confirm: 'Are you sure?' }  %>
+          <% end %>
+          <p><strong><%=  comment.username%></strong>: <%= simple_format(comment.body)%></p>
+        </div>
+        
+      <%end%>
+    </div>
+    <hr>
+    
+      <% if user_signed_in? %>
+        <h5>Add comment:</h5>
+        <%= form_for([@post, @post.comments.build]) do |form| %>
+        <div class="text-fields">
+    
+        <p>
+          <strong>User</strong><br>
+          <%= form.text_field(:username, :value => current_user.email)%>
+        </p>
+        <p>
+          <strong>Comment</strong><br>
+          <%=  form.text_area(:body) %>
+        </p>
+        </div>
+        <p>
+          <%= form.submit("Add comment")%>
+        </p>
+        <% end %>
+      <% else %>
+        <h6>Only authorized users can add comments:  <%= link_to "Log in", new_user_registration_path%><h6> 
+
+      <% end %>
+
+    <% if current_user && current_user.email == @post.user.email%>
+    <%= link_to 'Edit', edit_post_path(@post) %> |
+    <%end%>
+    <%= link_to 'Back', posts_path %>
+
+</div>
+

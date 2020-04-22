@@ -1,0 +1,44 @@
+<div class="certain-post">
+
+        <div class="flex-box-post">
+          <div class="post-img">
+            <% if post.photo.present? %>
+            <p><%= image_tag post.photo.url(:medium) %></p>
+            <% end %>
+          </div>
+          <div class="post-data">
+            <div class="post-info">
+              <h3><%= simple_format(post.title) %></h3>
+              <div class="post-info-username-and-pic">
+                <%= image_tag("logo/user-pic.svg", width: '16px', height: '16px')%>
+                <h6><%= simple_format(post.user.email)%></h6>
+          </div>
+
+            </div>
+            <div class="post-data-category">
+              <%= image_tag("logo/post-category.svg", width: '16px', height: '16px')%>
+              <h6><% post.tag_list.each do |t| %>
+                  <%= link_to t, tagged_path(tag: t), id:"tag" %>
+                  <% end %>
+              </h6>
+        </div>
+
+            <div class="post-text">
+              <% if post.body.length > 650 %>
+              <p><%= simple_format(post.body.slice(0..650) + "...") %></p>
+              <% else %>
+               <p><%= simple_format(post.body) %></p>
+              <% end %>
+            </div>
+          </div>
+    </div>
+
+        <div class="post-controls">
+          <div class="post-control"><%= link_to 'Show', post, id: "show" %></div>
+          <% if current_user && current_user.email == post.user.email%>
+          <div class="post-control"><%= link_to 'Edit', edit_post_path(post), id:"edit" %></div>
+          <div lcass="post-control"><%= link_to 'Delete', post, id:"delete", method: :delete, data: { confirm: 'Are you sure?' } %></div>
+          <%end%>
+        </div>
+
+</div>

@@ -1,0 +1,23 @@
+
+<div class="about-block">
+    
+    <div class="about-block-inner">
+        <h2>About us</h2>
+        <% if user_signed_in? %>
+            <div class="description"><p>Hello, <%= current_user.email.split('@')[0] %>!</p></div>
+        <% else %>
+            <div class="description"><p>Hello,human!</p></div>
+        <% end %>
+
+        <div class="description">
+            <p>The Progger's Blog project was created with the aim of collecting the most interesting materials from various fields of activity.
+            We do not pursue the goal of illegal distribution of materials, so if you received the copyright warning, 
+            please let us know about the violation at the contacts indicated here.
+            </p>
+        </div>
+        <div class="my-info-description">
+            <p><span>Email:</span> bilitsman@ukr.net</p>
+            <p><span>Phone:</span> +380(99)777-77-73</p>
+        </div>
+    </div>
+</div>

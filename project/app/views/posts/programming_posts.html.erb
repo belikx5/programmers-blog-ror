@@ -1,0 +1,12 @@
+<div class="all-posts">
+   <h1 class="posts-header">Posts</h1>
+   <div class="posts-list">
+    <% @posts.each do |post| %>
+    <%if post.categorie == "Programming"%>
+      
+      <%= render 'output-all-posts', post: post %>
+      
+      <% end %>
+    <% end %>
+    </div>
+  </div>
