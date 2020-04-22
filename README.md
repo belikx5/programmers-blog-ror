@@ -1,0 +1,2 @@
+# ProgBlog
+Simple RoR-blog
