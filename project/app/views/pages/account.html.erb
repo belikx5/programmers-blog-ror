@@ -1,5 +1,5 @@
 <div class="welcome-block">
-  <h2>Welcome,<span> <%=current_user.email %></span></h2>
+  <h2>Welcome,<span> <%=current_user.email.split('@')[0] %></span></h2>
   <h3>Here are your posts:</h3>
 </div>
 
@@ -26,7 +26,10 @@
             </div>
             <div class="post-data-category">
               <%= image_tag("logo/post-category.svg", width: '15px', height: '15px')%>
-              <h6>CATEGORY</h6>
+              <h6><% post.tag_list.each do |t| %>
+                  <%= link_to t, tagged_path(tag: t), id:"tag" %>
+                  <% end %>
+              </h6>
             </div>
             <div class="post-text">
               <p><%= simple_format(post.body) %></p>
