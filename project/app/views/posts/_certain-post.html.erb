@@ -1,6 +1,6 @@
 <div class="certain-post">
-
         <div class="flex-box-post">
+        
           <div class="post-img">
             <% if post.photo.present? %>
             <p><%= image_tag post.photo.url(:medium) %></p>
@@ -21,7 +21,13 @@
                   <%= link_to t, tagged_path(tag: t), id:"tag" %>
                   <% end %>
               </h6>
-        </div>
+            </div>
+            <div class="post-creation-time">
+              <%= image_tag("logo/post-creation-time.svg", width: '16px', height: '16px')%>
+             <h6>
+              <%= post.created_at.strftime("%B-%d-%Y, %l:%M%P") %>
+             </h6> 
+            </div>
 
             <div class="post-text">
               <% if post.body.length > 650 %>
