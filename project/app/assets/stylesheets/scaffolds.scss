@@ -97,10 +97,26 @@ div.navigation-menu{
   border-bottom:1px solid #FF8831;
 }
 
-h5.logo-text:hover{
-  color: #FF8831;
-  transition: 0.3s;
-  cursor: default;
+h5.logo-text a{
+  &:before {
+    content: "";
+    width: 0;
+    height: 0.1em;
+    position: absolute;
+    bottom: -10%;
+    
+    left: 0;
+    background: #FF8831;
+    transition: all 0.3s;
+}
+&:hover {
+  text-decoration: none;
+  color:#FF8831;
+    &:before {
+      width: 100%;
+      background: #FF8831;
+    }
+  }
 }
 /* Categories side navigation*/
 .main-page-block{
