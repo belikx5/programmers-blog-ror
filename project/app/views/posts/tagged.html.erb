@@ -1,21 +1,6 @@
 <div class="main-page-content">
   <div class= "main-page-block">
-  <div class="main-page-aside">
-        <h4 class="categories-header">Categories</h4>
-        <nav class="main-page-side-navigation">
-        <span><%= link_to "All posts", posts_path %></span> 
-        <% arr = Array.new %>
-        <% @posts.each do |p| %>
-           <% p.tag_list.each do |t|
-                if !arr.include?(t)
-                arr.push(t)
-            %>
-                <span><%= link_to t, tagged_path(tag: t) %></span>
-                <% end %>
-              <% end %>
-            <% end %>
-        </nav>
-      </div>
+    
       <div class="all-posts">
        <h1 class="posts-header">Posts</h1>
        <div class="posts-list">
