@@ -15,7 +15,7 @@
   <body  class="mt-0">
    <div class="navigation-menu d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 b  box-shadow">
       <%= image_tag("logo/blog-logo.jpeg", width: '35px', height: '35px')%>
-      <h5 class="logo-text my-0 mr-md-auto font-weight-bold">Progger's Blog</h5>
+      <h5 class="logo-text my-0 mr-md-auto font-weight-bold"><%= link_to "Progger's Blog", posts_path %></h5>
       <nav class="my-2 my-md-0 mr-md-3">
         <span class="p-2  text-primary" ><%= link_to "Blog", posts_path %></span>
         <span class="p-2  text-primary" ><%= link_to "About", about_path %></span>
